@@ -1,0 +1,115 @@
+README
+======
+
+This is an E-commerce website for practicing bug identification. Please follow the information provided below:
+
+Working Page: https://www.saucedemo.com/inventory.html
+Username: problem_user
+Password: secret_sauce
+
+----------------------------
+Test Scenarios
+----------------------------
+
+Navbar
+------
+- Clicking "All Items" redirects to the Inventory page.
+- Clicking "About" redirects to the About page.
+- Clicking "Logout" redirects to the Login page.
+- Clicking "Reset App State" resets all functions and variables.
+- Clicking the Sorting function should re-sort the items accordingly.
+
+Inventory Page
+--------------
+- Clicking the "Add to cart" button increases the cart quantity by 1.
+- After clicking "Add to cart", the button should change to "Remove".
+- Clicking the "Remove" button decreases the cart quantity by 1.
+- After clicking "Remove", the button should revert to "Add to cart".
+- Clicking the cart icon redirects to the Cart page.
+- Clicking on a product item should navigate to its correct item detail page.
+
+Item Detail Page
+----------------
+- Clicking the "Add to cart" button increases the cart quantity by 1.
+- After clicking "Add to cart", the button should change to "Remove".
+- Clicking the "Remove" button decreases the cart quantity by 1.
+- After clicking "Remove", the button should revert to "Add to cart".
+- Clicking "Back to Products" redirects to the Inventory page.
+
+Cart Page
+---------
+- The number of products displayed should match the number shown on the cart icon.
+- Clicking the "Remove" button deletes the item from the cart and decreases the cart icon count.
+- Clicking "Checkout" redirects to the Checkout Step One page.
+
+Checkout Step One Page
+----------------------
+- Users can fill in First Name, Last Name, and Zip Code.
+- Clicking "Continue" navigates to the Payment page.
+
+
+============================
+Bug Report
+============================
+
+Navbar Function
+---------------
+- Clicking "About" results in a 404 page not found.
+- "Reset App State" does not reset the "Remove" button back to "Add to cart".
+- Sorting by "Name (Z to A)", "Price (low to high)", and "Price (high to low)" does not work correctly.
+
+Inventory Page
+--------------
+
+"Add to cart" button NOT working for:
+- Sauce Labs Bolt T-Shirt
+- Sauce Labs Fleece Jacket
+- Test.allTheThings() T-Shirt (Red)
+
+"Remove" button NOT working for:
+- Sauce Labs Backpack
+- Sauce Labs Bike Light
+- Sauce Labs Onesie
+
+Product links are incorrect:
+- Sauce Labs Backpack → Links to Sauce Labs Fleece Jacket
+- Sauce Labs Bike Light → Links to Sauce Labs Bolt T-Shirt
+- Sauce Labs Bolt T-Shirt → Links to Sauce Labs Onesie
+- Sauce Labs Fleece Jacket → Links to "ITEM NOT FOUND"
+- Sauce Labs Onesie → Links to Test.allTheThings() T-Shirt (Red)
+- Test.allTheThings() T-Shirt (Red) → Links to Sauce Labs Backpack
+
+Item Detail Pages
+-----------------
+
+Sauce Labs Bolt T-Shirt (item1)
+- Add to cart button not working
+
+Sauce Labs Onesie (item2)
+- Remove button not working
+
+Test.allTheThings() T-Shirt (Red) (item3)
+- Add to cart button not working
+
+Sauce Labs Backpack (item4)
+- Remove button not working
+
+Sauce Labs Fleece Jacket (item5)
+- Add to cart button not working
+
+CRITICAL BUG - ITEM NOT FOUND (item6)
+-------------------------------------
+- Should redirect to the Sauce Labs Bike Light page
+- Remove button not working
+
+Cart Page
+---------
+- When the cart is empty, the "Checkout" button is disabled (expected behavior may vary)
+
+CRITICAL BUG - Cart page error
+------------------------------
+- If click Add to cart button at item6  cart page will broken
+
+CRITICAL BUG - Checkout Step One Page
+-------------------------------------
+- The "Last Name" text box is not usable; input appears only in the "First Name" field
